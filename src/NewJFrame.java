@@ -25,21 +25,213 @@ public class NewJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        title = new javax.swing.JLabel();
+        habitsTitle = new javax.swing.JLabel();
+        tipsButton = new javax.swing.JToggleButton();
+        tiktokSlider = new javax.swing.JSlider();
+        instagramSlider = new javax.swing.JSlider();
+        redditSlider = new javax.swing.JSlider();
+        tiktokLabel = new javax.swing.JLabel();
+        instagramLabel = new javax.swing.JLabel();
+        redditLabel = new javax.swing.JLabel();
+        tiktokHours = new javax.swing.JTextField();
+        instagramHours = new javax.swing.JTextField();
+        redditHours = new javax.swing.JTextField();
+        stalkabilityTitle = new javax.swing.JLabel();
+        check1 = new javax.swing.JCheckBox();
+        check2 = new javax.swing.JCheckBox();
+        check3 = new javax.swing.JCheckBox();
+        check4 = new javax.swing.JCheckBox();
+        check5 = new javax.swing.JCheckBox();
+        calculateButon = new javax.swing.JToggleButton();
+        resultLabel = new javax.swing.JLabel();
+        tipsLabel = new javax.swing.JLabel();
+        statsLabel = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        title.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        title.setText("Digital Footprint Tracker");
+
+        habitsTitle.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        habitsTitle.setText("Your Habits: (Time -- Posts per week)");
+
+        tipsButton.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        tipsButton.setText("Tips");
+
+        tiktokSlider.setMaximum(24);
+
+        instagramSlider.setMaximum(24);
+
+        redditSlider.setMaximum(24);
+
+        tiktokLabel.setText("Tiktok:");
+
+        instagramLabel.setText("Instagram:");
+
+        redditLabel.setText("Reddit:");
+
+        tiktokHours.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tiktokHoursActionPerformed(evt);
+            }
+        });
+
+        instagramHours.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                instagramHoursActionPerformed(evt);
+            }
+        });
+
+        redditHours.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                redditHoursActionPerformed(evt);
+            }
+        });
+
+        stalkabilityTitle.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        stalkabilityTitle.setText("Stalkability Risk");
+
+        check1.setText("Public Profile");
+
+        check2.setText("Real Name in User");
+
+        check3.setText("Posts with school/face");
+
+        check4.setText("Posts about daily routine");
+
+        check5.setText("Location Sharing");
+        check5.setToolTipText("");
+
+        calculateButon.setText("Calculate Digital Footprint");
+
+        resultLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        tipsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(calculateButon)
+                .addGap(160, 160, 160))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tiktokLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(instagramLabel)
+                            .addComponent(redditLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tiktokSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(instagramSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(redditSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(redditHours, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(instagramHours, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tiktokHours, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(habitsTitle))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(stalkabilityTitle))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(check2)
+                            .addComponent(check1)
+                            .addComponent(check3)
+                            .addComponent(check4)
+                            .addComponent(check5))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(tipsButton)
+                        .addGap(100, 100, 100))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(tipsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(statsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(149, 149, 149)
+                .addComponent(title)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(57, Short.MAX_VALUE)
+                .addComponent(resultLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(title)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(habitsTitle)
+                    .addComponent(tipsButton))
+                .addGap(9, 9, 9)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tiktokSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tiktokLabel)
+                            .addComponent(tiktokHours, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(15, 15, 15)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(instagramSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(instagramLabel)
+                            .addComponent(instagramHours, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(redditSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(redditLabel)
+                            .addComponent(redditHours, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(34, 34, 34)
+                        .addComponent(stalkabilityTitle)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(check1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(check2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(check3)
+                        .addGap(10, 10, 10)
+                        .addComponent(check4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(check5))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(tipsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(statsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(calculateButon)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(resultLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                .addGap(18, 18, 18))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tiktokHoursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tiktokHoursActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tiktokHoursActionPerformed
+
+    private void instagramHoursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_instagramHoursActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_instagramHoursActionPerformed
+
+    private void redditHoursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redditHoursActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_redditHoursActionPerformed
 
     /**
      * @param args the command line arguments
@@ -77,5 +269,27 @@ public class NewJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton calculateButon;
+    private javax.swing.JCheckBox check1;
+    private javax.swing.JCheckBox check2;
+    private javax.swing.JCheckBox check3;
+    private javax.swing.JCheckBox check4;
+    private javax.swing.JCheckBox check5;
+    private javax.swing.JLabel habitsTitle;
+    private javax.swing.JTextField instagramHours;
+    private javax.swing.JLabel instagramLabel;
+    private javax.swing.JSlider instagramSlider;
+    private javax.swing.JTextField redditHours;
+    private javax.swing.JLabel redditLabel;
+    private javax.swing.JSlider redditSlider;
+    private javax.swing.JLabel resultLabel;
+    private javax.swing.JLabel stalkabilityTitle;
+    private javax.swing.JLabel statsLabel;
+    private javax.swing.JTextField tiktokHours;
+    private javax.swing.JLabel tiktokLabel;
+    private javax.swing.JSlider tiktokSlider;
+    private javax.swing.JToggleButton tipsButton;
+    private javax.swing.JLabel tipsLabel;
+    private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
 }
