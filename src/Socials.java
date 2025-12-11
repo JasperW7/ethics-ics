@@ -11,9 +11,7 @@ public class Socials {
     private static int totalAccounts;
     private static int totalHrs;
     protected int hrsSpent;
-    protected String platformName;
-    public Socials(String platform,int hours){
-        this.platformName=platform;
+    public Socials(int hours){
         this.hrsSpent=hours;
         totalHrs += hours;
         totalAccounts++;

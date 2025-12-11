@@ -9,8 +9,8 @@
  */
 public class Reddit extends Socials{
     private int postsPerWeek;
-    public Reddit(String platform, int hours,int postsPerWeek){
-        super(platform,hours);
+    public Reddit(int hours,int postsPerWeek){
+        super(hours);
         this.postsPerWeek=postsPerWeek;
     }
     

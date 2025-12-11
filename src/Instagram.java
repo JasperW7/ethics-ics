@@ -10,8 +10,8 @@
 public class Instagram extends Socials{
     private int reelsPerWeek;
     private int postsPerWeek;
-    public Instagram(String platform, int hours,int reelsPerWeek, int postsPerWeek){
-        super(platform,hours);
+    public Instagram(int hours,int reelsPerWeek, int postsPerWeek){
+        super(hours);
         this.reelsPerWeek=reelsPerWeek;
         this.postsPerWeek=postsPerWeek;
     }

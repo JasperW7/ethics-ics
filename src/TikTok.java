@@ -9,8 +9,8 @@
  */
 public class TikTok extends Socials{
     private int reelsPerWeek;
-    public TikTok(String platform, int hours,int reelsPerWeek){
-        super(platform,hours);
+    public TikTok(int hours,int reelsPerWeek){
+        sr(hours);uper(hours);
         this.reelsPerWeek=reelsPerWeek;
     }
     
