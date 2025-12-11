@@ -14,6 +14,9 @@ public class NewJFrame extends javax.swing.JFrame {
      */
     public NewJFrame() {
         initComponents();
+        tiktokSlider.setValue(0);
+        instagramSlider.setValue(0);
+        redditSlider.setValue(0);
     }
 
     /**
