@@ -25,10 +25,13 @@ public class Instagram extends Socials{
     
     @Override
     public double calculateStalkability(){
-        return Socials.totalHrs*0.01+reelsPerWeek*0.01+postsPerWeek*0.01+NewJFrame.score*0.02;
+        return Socials.totalHrs*Socials.HOURS_MULTIPLIER
+                +reelsPerWeek*Socials.REELS_MULTIPLER 
+                + postsPerWeek*Socials.POSTS_MULTIPLIER
+                + NewJFrame.score*Socials.SCORE_MULTIPLIER;
     }
     @Override
     public String toString(){
-        return "User spends "+ super.hrsSpent + " hours on Instagram, watches " + reelsPerWeek + " reels per week, and posts "+postsPerWeek+"posts per week.";
+        return "User spends "+ super.hrsSpent + " hours on Instagram, watches " + reelsPerWeek + " reels per week, posts "+postsPerWeek+"posts per week, and has a stalkability of "+calculateStalkability()+".";
     }
 }

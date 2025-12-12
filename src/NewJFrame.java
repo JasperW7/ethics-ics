@@ -199,7 +199,25 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void calculateButonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateButonActionPerformed
         try{
+            Socials [] socials = new Socials[3];
+            int th = tiktokSlider.getValue();
+            int ih = instagramSlider.getValue();
+            int rh = redditSlider.getValue();
+            int tr = Integer.parseInt(tiktokReels.getText());
+            int ir = Integer.parseInt(instagramReels.getText());
+            int ip = Integer.parseInt(instagramPosts.getText());
+            int rp = Integer.parseInt(redditPosts.getText());
             
+            
+            score += (check1.isSelected())?1:0;
+            score += (check2.isSelected())?2:0;
+            score += (check3.isSelected())?5:0;
+            score += (check4.isSelected())?5:0;
+            score += (check5.isSelected())?10:0;
+            
+            socials[0] = new TikTok(th,tr);
+            socials[1] = new Instagram(ih,ir,ip);
+            socials[2] = new Reddit(rh,rp);
         }catch (Exception e){
             resultLabel.setText("Invalid input. Amount of reels/posts should be integer value.");
         }

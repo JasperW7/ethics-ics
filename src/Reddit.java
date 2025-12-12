@@ -21,11 +21,13 @@ public class Reddit extends Socials{
     
     @Override
     public double calculateStalkability(){
-        return Socials.totalHrs*0.01 + postsPerWeek*0.01 + NewJFrame.score*0.02;
+        return Socials.totalHrs*Socials.HOURS_MULTIPLIER
+                + postsPerWeek*Socials.POSTS_MULTIPLIER
+                + NewJFrame.score*Socials.SCORE_MULTIPLIER;
     }
     
     @Override
     public String toString(){
-        return "User spends "+ super.hrsSpent + " hours on Reddit and posts "+postsPerWeek+"posts per week.";
+        return "User spends "+ super.hrsSpent + " hours on Reddit, posts "+postsPerWeek+"posts per week, and has a stalkability of "+calculateStalkability()+".";
     }
 }
