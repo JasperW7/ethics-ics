@@ -156,9 +156,9 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel1.setText("Daily Hours:");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, -1, 20));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setText("Stalkability Risk:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, -1, -1));
+        //jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        //jLabel2.setText("Stalkability Risk:");
+        //getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Days Wasted/Year:");
