@@ -37,9 +37,9 @@ public class NewJFrame extends javax.swing.JFrame {
         tiktokLabel = new javax.swing.JLabel();
         instagramLabel = new javax.swing.JLabel();
         redditLabel = new javax.swing.JLabel();
-        tiktokHours = new javax.swing.JTextField();
-        instagramHours = new javax.swing.JTextField();
-        redditHours = new javax.swing.JTextField();
+        tiktokReels = new javax.swing.JTextField();
+        instagramReels = new javax.swing.JTextField();
+        redditPostHours = new javax.swing.JTextField();
         stalkabilityTitle = new javax.swing.JLabel();
         check1 = new javax.swing.JCheckBox();
         check2 = new javax.swing.JCheckBox();
@@ -57,6 +57,7 @@ public class NewJFrame extends javax.swing.JFrame {
         dailyHours = new javax.swing.JLabel();
         daysWasted = new javax.swing.JLabel();
         stalkRisk2 = new javax.swing.JLabel();
+        instagramPosts = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -66,7 +67,7 @@ public class NewJFrame extends javax.swing.JFrame {
         getContentPane().add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 6, -1, -1));
 
         habitsTitle.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        habitsTitle.setText("Your Habits: (Time -- Posts per week)");
+        habitsTitle.setText("Your Habits: (Time-Posts per week-Reels Per Week)");
         getContentPane().add(habitsTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 52, -1, -1));
 
         tipsButton.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
@@ -91,26 +92,26 @@ public class NewJFrame extends javax.swing.JFrame {
         redditLabel.setText("Reddit:");
         getContentPane().add(redditLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 161, -1, -1));
 
-        tiktokHours.addActionListener(new java.awt.event.ActionListener() {
+        tiktokReels.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tiktokHoursActionPerformed(evt);
+                tiktokReelsActionPerformed(evt);
             }
         });
-        getContentPane().add(tiktokHours, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 81, 71, -1));
+        getContentPane().add(tiktokReels, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 40, -1));
 
-        instagramHours.addActionListener(new java.awt.event.ActionListener() {
+        instagramReels.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                instagramHoursActionPerformed(evt);
+                instagramReelsActionPerformed(evt);
             }
         });
-        getContentPane().add(instagramHours, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 118, 71, -1));
+        getContentPane().add(instagramReels, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 40, -1));
 
-        redditHours.addActionListener(new java.awt.event.ActionListener() {
+        redditPostHours.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                redditHoursActionPerformed(evt);
+                redditPostHoursActionPerformed(evt);
             }
         });
-        getContentPane().add(redditHours, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 158, 71, -1));
+        getContentPane().add(redditPostHours, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 40, -1));
 
         stalkabilityTitle.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         stalkabilityTitle.setText("Stalkability Risk");
@@ -133,13 +134,18 @@ public class NewJFrame extends javax.swing.JFrame {
         getContentPane().add(check5, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 346, -1, -1));
 
         calculateButon.setText("Calculate Digital Footprint");
+        calculateButon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calculateButonActionPerformed(evt);
+            }
+        });
         getContentPane().add(calculateButon, new org.netbeans.lib.awtextra.AbsoluteConstraints(171, 433, -1, -1));
 
         resultLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(resultLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 462, 428, 2));
 
         tipsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(tipsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(307, 81, 143, 122));
+        getContentPane().add(tipsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 143, 122));
 
         stalkabilityTitle1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         stalkabilityTitle1.setText("Lifetime Stats");
@@ -173,21 +179,30 @@ public class NewJFrame extends javax.swing.JFrame {
         stalkRisk2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         stalkRisk2.setText("0%");
         getContentPane().add(stalkRisk2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 340, -1, -1));
+        getContentPane().add(instagramPosts, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 40, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tiktokHoursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tiktokHoursActionPerformed
+    private void tiktokReelsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tiktokReelsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tiktokHoursActionPerformed
+    }//GEN-LAST:event_tiktokReelsActionPerformed
 
-    private void instagramHoursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_instagramHoursActionPerformed
+    private void instagramReelsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_instagramReelsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_instagramHoursActionPerformed
+    }//GEN-LAST:event_instagramReelsActionPerformed
 
-    private void redditHoursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redditHoursActionPerformed
+    private void redditPostHoursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redditPostHoursActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_redditHoursActionPerformed
+    }//GEN-LAST:event_redditPostHoursActionPerformed
+
+    private void calculateButonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateButonActionPerformed
+        try{
+            
+        }catch (Exception e){
+            resultLabel.setText("Invalid input. Amount of reels/posts should be integer value.");
+        }
+    }//GEN-LAST:event_calculateButonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -234,22 +249,23 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel dailyHours;
     private javax.swing.JLabel daysWasted;
     private javax.swing.JLabel habitsTitle;
-    private javax.swing.JTextField instagramHours;
     private javax.swing.JLabel instagramLabel;
+    private javax.swing.JTextField instagramPosts;
+    private javax.swing.JTextField instagramReels;
     private javax.swing.JSlider instagramSlider;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField redditHours;
     private javax.swing.JLabel redditLabel;
+    private javax.swing.JTextField redditPostHours;
     private javax.swing.JSlider redditSlider;
     private javax.swing.JLabel resultLabel;
     private javax.swing.JLabel stalkRisk;
     private javax.swing.JLabel stalkRisk2;
     private javax.swing.JLabel stalkabilityTitle;
     private javax.swing.JLabel stalkabilityTitle1;
-    private javax.swing.JTextField tiktokHours;
     private javax.swing.JLabel tiktokLabel;
+    private javax.swing.JTextField tiktokReels;
     private javax.swing.JSlider tiktokSlider;
     private javax.swing.JToggleButton tipsButton;
     private javax.swing.JLabel tipsLabel;

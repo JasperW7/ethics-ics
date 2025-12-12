@@ -16,6 +16,11 @@ public class Socials {
         totalHrs += hours;
         totalAccounts++;
     }
+    public Socials(){
+        this(0);
+        totalAccounts++;
+        
+    }
     public int getTotalAccounts(){return totalAccounts;}
     @Override
     public String toString(){
