@@ -12,6 +12,7 @@ public class NewJFrame extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
+    public static int score = 0;
     public NewJFrame() {
         initComponents();
         tiktokSlider.setValue(0);

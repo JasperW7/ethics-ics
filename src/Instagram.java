@@ -10,6 +10,7 @@
 public class Instagram extends Socials{
     private int reelsPerWeek;
     private int postsPerWeek;
+    
     public Instagram(int hours,int reelsPerWeek, int postsPerWeek){
         super(hours);
         this.reelsPerWeek=reelsPerWeek;
@@ -17,8 +18,15 @@ public class Instagram extends Socials{
     }
     
     public int getReelsPerWeek() {return reelsPerWeek;}
+    
     public int getPostsPerWeek() {return postsPerWeek;}
+    
     public int getHrsSpent(){return super.hrsSpent;}
+    
+    @Override
+    public double calculateStalkability(){
+        return Socials.totalHrs*0.01+reelsPerWeek*0.01+postsPerWeek*0.01+NewJFrame.score*0.02;
+    }
     @Override
     public String toString(){
         return "User spends "+ super.hrsSpent + " hours on Instagram, watches " + reelsPerWeek + " reels per week, and posts "+postsPerWeek+"posts per week.";
