@@ -40,7 +40,6 @@ public class NewJFrame extends javax.swing.JFrame {
         redditLabel = new javax.swing.JLabel();
         tiktokReels = new javax.swing.JTextField();
         instagramReels = new javax.swing.JTextField();
-        redditPostHours = new javax.swing.JTextField();
         stalkabilityTitle = new javax.swing.JLabel();
         check1 = new javax.swing.JCheckBox();
         check2 = new javax.swing.JCheckBox();
@@ -59,6 +58,7 @@ public class NewJFrame extends javax.swing.JFrame {
         daysWasted = new javax.swing.JLabel();
         stalkRisk2 = new javax.swing.JLabel();
         instagramPosts = new javax.swing.JTextField();
+        redditPosts = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -107,13 +107,6 @@ public class NewJFrame extends javax.swing.JFrame {
         });
         getContentPane().add(instagramReels, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 40, -1));
 
-        redditPostHours.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                redditPostHoursActionPerformed(evt);
-            }
-        });
-        getContentPane().add(redditPostHours, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 40, -1));
-
         stalkabilityTitle.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         stalkabilityTitle.setText("Stalkability Risk");
         getContentPane().add(stalkabilityTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 214, -1, -1));
@@ -156,9 +149,9 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel1.setText("Daily Hours:");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, -1, 20));
 
-        //jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        //jLabel2.setText("Stalkability Risk:");
-        //getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, -1, -1));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setText("Stalkability Risk:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Days Wasted/Year:");
@@ -181,6 +174,7 @@ public class NewJFrame extends javax.swing.JFrame {
         stalkRisk2.setText("0%");
         getContentPane().add(stalkRisk2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 340, -1, -1));
         getContentPane().add(instagramPosts, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 40, -1));
+        getContentPane().add(redditPosts, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 40, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -276,7 +270,7 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel redditLabel;
-    private javax.swing.JTextField redditPostHours;
+    private javax.swing.JTextField redditPosts;
     private javax.swing.JSlider redditSlider;
     private javax.swing.JLabel resultLabel;
     private javax.swing.JLabel stalkRisk;
