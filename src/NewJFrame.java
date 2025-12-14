@@ -5,10 +5,10 @@
 
 /**
  *
- * @author jaspe
+ * @author jaspe & wilso
  */
 public class NewJFrame extends javax.swing.JFrame {
-
+DataManager dataManager = new DataManager();
     /**
      * Creates new form NewJFrame
      */
@@ -31,7 +31,6 @@ public class NewJFrame extends javax.swing.JFrame {
 
         title = new javax.swing.JLabel();
         habitsTitle = new javax.swing.JLabel();
-        tipsButton = new javax.swing.JToggleButton();
         tiktokSlider = new javax.swing.JSlider();
         instagramSlider = new javax.swing.JSlider();
         redditSlider = new javax.swing.JSlider();
@@ -59,6 +58,8 @@ public class NewJFrame extends javax.swing.JFrame {
         stalkRisk2 = new javax.swing.JLabel();
         instagramPosts = new javax.swing.JTextField();
         redditPosts = new javax.swing.JTextField();
+        habitsTitle1 = new javax.swing.JLabel();
+        tipsButton = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -67,21 +68,29 @@ public class NewJFrame extends javax.swing.JFrame {
         title.setText("Digital Footprint Tracker");
         getContentPane().add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 6, -1, -1));
 
-        habitsTitle.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        habitsTitle.setText("Your Habits: (Time-Posts per week-Reels Per Week)");
-        getContentPane().add(habitsTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 52, -1, -1));
+        habitsTitle.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        habitsTitle.setText("Posts/Day - Reels/Day");
+        getContentPane().add(habitsTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, -1, 20));
 
-        tipsButton.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        tipsButton.setText("Tips");
-        getContentPane().add(tipsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, -1, -1));
-
-        tiktokSlider.setMaximum(24);
+        tiktokSlider.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                tiktokSliderStateChanged(evt);
+            }
+        });
         getContentPane().add(tiktokSlider, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 83, 90, -1));
 
-        instagramSlider.setMaximum(24);
+        instagramSlider.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                instagramSliderStateChanged(evt);
+            }
+        });
         getContentPane().add(instagramSlider, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 120, 90, -1));
 
-        redditSlider.setMaximum(24);
+        redditSlider.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                redditSliderStateChanged(evt);
+            }
+        });
         getContentPane().add(redditSlider, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 160, 90, -1));
 
         tiktokLabel.setText("Tiktok:");
@@ -136,10 +145,10 @@ public class NewJFrame extends javax.swing.JFrame {
         getContentPane().add(calculateButon, new org.netbeans.lib.awtextra.AbsoluteConstraints(171, 433, -1, -1));
 
         resultLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(resultLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 462, 428, 2));
+        getContentPane().add(resultLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 462, 428, 80));
 
         tipsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(tipsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 143, 122));
+        getContentPane().add(tipsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 143, 122));
 
         stalkabilityTitle1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         stalkabilityTitle1.setText("Lifetime Stats");
@@ -176,6 +185,19 @@ public class NewJFrame extends javax.swing.JFrame {
         getContentPane().add(instagramPosts, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 40, -1));
         getContentPane().add(redditPosts, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 40, -1));
 
+        habitsTitle1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        habitsTitle1.setText("Your Habits (Time):");
+        getContentPane().add(habitsTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, 20));
+
+        tipsButton.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        tipsButton.setText("Tips");
+        tipsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tipsButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(tipsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -192,30 +214,106 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_redditPostHoursActionPerformed
 
     private void calculateButonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateButonActionPerformed
-        try{
-            Socials [] socials = new Socials[3];
-            int th = tiktokSlider.getValue();
-            int ih = instagramSlider.getValue();
-            int rh = redditSlider.getValue();
-            int tr = Integer.parseInt(tiktokReels.getText());
-            int ir = Integer.parseInt(instagramReels.getText());
-            int ip = Integer.parseInt(instagramPosts.getText());
-            int rp = Integer.parseInt(redditPosts.getText());
+        try {
+            //Reset variables
+            Socials.totalHrs = 0;
+            Socials.totalAccounts = 0;
+            score = 0; 
+
+            // Get Counts from Text Boxes
+            int tr = tiktokReels.getText().isEmpty() ? 0 : Integer.parseInt(tiktokReels.getText());
+            int ir = instagramReels.getText().isEmpty() ? 0 : Integer.parseInt(instagramReels.getText());
+            int ip = instagramPosts.getText().isEmpty() ? 0 : Integer.parseInt(instagramPosts.getText());
+            int rp = redditPosts.getText().isEmpty() ? 0 : Integer.parseInt(redditPosts.getText());
             
+            //Calculate Time Based on Content
+            double tiktokMinutes = tr * 0.5;
+            double instagramMinutes = (ir * 0.5) + (ip * 2.0);
+            double redditMinutes = rp * 2.0;
             
-            score += (check1.isSelected())?1:0;
-            score += (check2.isSelected())?2:0;
-            score += (check3.isSelected())?5:0;
-            score += (check4.isSelected())?5:0;
-            score += (check5.isSelected())?10:0;
+            double totalMinutes = tiktokMinutes + instagramMinutes + redditMinutes;
+            double exactHours = totalMinutes / 60.0; // Convert to hours
             
-            socials[0] = new TikTok(th,tr);
-            socials[1] = new Instagram(ih,ir,ip);
-            socials[2] = new Reddit(rh,rp);
-        }catch (Exception e){
-            resultLabel.setText("Invalid input. Amount of reels/posts should be integer value.");
+            Socials.totalHrs = (int) Math.round(exactHours);
+
+            //calculate Checkbox Score
+            score += (check1.isSelected()) ? 15 : 0; 
+            score += (check2.isSelected()) ? 15 : 0;
+            score += (check3.isSelected()) ? 15 : 0;
+            score += (check4.isSelected()) ? 15 : 0;
+            score += (check5.isSelected()) ? 15 : 0;
+
+            //Create Objects 
+            Socials[] socials = new Socials[3];
+            socials[0] = new TikTok((int)(tiktokMinutes/60), tr);
+            socials[1] = new Instagram((int)(instagramMinutes/60), ir, ip);
+            socials[2] = new Reddit((int)(redditMinutes/60), rp);
+
+            //Calculate Risk
+            double finalRisk = 0;
+            for (Socials s : socials) {
+                finalRisk += s.calculateStalkability();
+            }
+            if (finalRisk > 100) finalRisk = 100;
+
+            //Update Labels
+            dailyHours.setText(String.format("%.1f", exactHours) + " hours");
+            
+            // Calculate Days Wasted
+            double days = (exactHours * 365) / 24.0;
+            daysWasted.setText(String.format("%.1f", days) + " days");
+            
+            stalkRisk2.setText(String.format("%.1f", finalRisk) + "%");
+            
+            //Risk Status
+            if (finalRisk < 30) {
+                stalkRisk.setText("LOW");
+                stalkRisk.setForeground(java.awt.Color.GREEN);
+            } else if (finalRisk < 70) {
+                stalkRisk.setText("MEDIUM");
+                stalkRisk.setForeground(java.awt.Color.ORANGE);
+            } else {
+                stalkRisk.setText("CRITICAL");
+                stalkRisk.setForeground(java.awt.Color.RED);
+            }
+
+            // save to File
+            dataManager.saveResultLog(exactHours, finalRisk);
+            
+            resultLabel.setText("Calculation Complete. Data saved.");
+
+        } catch (NumberFormatException e) {
+            resultLabel.setText("Error: Please enter numbers only.");
+        } catch (Exception e) {
+            resultLabel.setText("An error occurred: " + e.getMessage());
         }
     }//GEN-LAST:event_calculateButonActionPerformed
+
+    private void tiktokSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tiktokSliderStateChanged
+        // Updates boxes to show hours
+        int val = tiktokSlider.getValue();
+        tiktokReels.setText(String.valueOf(val));
+    }//GEN-LAST:event_tiktokSliderStateChanged
+
+    private void instagramSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_instagramSliderStateChanged
+        int val = instagramSlider.getValue();
+        // Updates the 'Reels' box
+        instagramReels.setText(String.valueOf(val));
+    }//GEN-LAST:event_instagramSliderStateChanged
+
+    private void redditSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_redditSliderStateChanged
+        int val = redditSlider.getValue();
+        redditPosts.setText(String.valueOf(val));
+    }//GEN-LAST:event_redditSliderStateChanged
+
+    private void tipsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipsButtonActionPerformed
+        //Get random tip
+        String randomTip = dataManager.getRandomTip();
+        
+        //Update the Label
+        //using HTML tags to make the text wrap automatically if it's too long
+        tipsLabel.setText("<html><center>" + randomTip + "</center></html>");
+    }//GEN-LAST:event_tipsButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -262,6 +360,7 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel dailyHours;
     private javax.swing.JLabel daysWasted;
     private javax.swing.JLabel habitsTitle;
+    private javax.swing.JLabel habitsTitle1;
     private javax.swing.JLabel instagramLabel;
     private javax.swing.JTextField instagramPosts;
     private javax.swing.JTextField instagramReels;

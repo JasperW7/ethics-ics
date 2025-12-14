@@ -7,27 +7,26 @@
  *
  * @author jaspe
  */
-public class Reddit extends Socials{
-    private int postsPerWeek;
+public class Reddit extends Socials {
+    private int postsPerDay; // Renamed
     
-    public Reddit(int hours,int postsPerWeek){
+    public Reddit(int hours, int postsPerDay){
         super(hours);
-        this.postsPerWeek=postsPerWeek;
+        this.postsPerDay = postsPerDay;
     }
     
-    public int getPostsPerWeek() {return postsPerWeek;}
-    
-    public int getHrsSpent(){return super.hrsSpent;}
+    public int getPostsPerDay() { return postsPerDay; }
     
     @Override
     public double calculateStalkability(){
-        return Socials.totalHrs*Socials.HOURS_MULTIPLIER
-                + postsPerWeek*Socials.POSTS_MULTIPLIER
-                + NewJFrame.score*Socials.SCORE_MULTIPLIER;
+        return Socials.totalHrs * Socials.HOURS_MULTIPLIER
+                + postsPerDay * Socials.POSTS_MULTIPLIER
+                + NewJFrame.score * Socials.SCORE_MULTIPLIER;
     }
     
     @Override
     public String toString(){
-        return "User spends "+ super.hrsSpent + " hours on Reddit, posts "+postsPerWeek+"posts per week, and has a stalkability of "+calculateStalkability()+".";
+        return "User spends " + super.hrsSpent + " hours on Reddit, posts " 
+               + postsPerDay + " posts per day.";
     }
 }

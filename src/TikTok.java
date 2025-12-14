@@ -7,28 +7,26 @@
  *
  * @author jaspe
  */
-public class TikTok extends Socials{
-    private int reelsPerWeek;
+public class TikTok extends Socials {
+    private int reelsPerDay; // Renamed
     
-    public TikTok(int hours,int reelsPerWeek){
+    public TikTok(int hours, int reelsPerDay){
         super(hours);
-        this.reelsPerWeek=reelsPerWeek;
+        this.reelsPerDay = reelsPerDay;
     }
     
-    public int getReelsPerWeek() {return reelsPerWeek;}
+    public int getReelsPerDay() { return reelsPerDay; }
     
-    public int getHrsSpent(){return super.hrsSpent;}
     @Override
     public double calculateStalkability(){
-        return Socials.totalHrs*Socials.HOURS_MULTIPLIER
-                +reelsPerWeek*Socials.REELS_MULTIPLER 
-                + NewJFrame.score*Socials.SCORE_MULTIPLIER;
+        return Socials.totalHrs * Socials.HOURS_MULTIPLIER
+                + reelsPerDay * Socials.REELS_MULTIPLER 
+                + NewJFrame.score * Socials.SCORE_MULTIPLIER;
     }
     
     @Override
     public String toString(){
-        return "User spends "+ super.hrsSpent + " hours on TikTok, watches " + reelsPerWeek + " reels per week and has a stalkability of "+calculateStalkability()+".";
+        return "User spends " + super.hrsSpent + " hours on TikTok, watches " 
+               + reelsPerDay + " reels per day.";
     }
-    
-    
-}
+}    

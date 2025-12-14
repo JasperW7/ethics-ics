@@ -7,31 +7,30 @@
  *
  * @author jaspe
  */
-public class Instagram extends Socials{
-    private int reelsPerWeek;
-    private int postsPerWeek;
+public class Instagram extends Socials {
+    private int reelsPerDay;
+    private int postsPerDay;
     
-    public Instagram(int hours,int reelsPerWeek, int postsPerWeek){
+    public Instagram(int hours, int reelsPerDay, int postsPerDay){
         super(hours);
-        this.reelsPerWeek=reelsPerWeek;
-        this.postsPerWeek=postsPerWeek;
+        this.reelsPerDay = reelsPerDay;
+        this.postsPerDay = postsPerDay;
     }
     
-    public int getReelsPerWeek() {return reelsPerWeek;}
-    
-    public int getPostsPerWeek() {return postsPerWeek;}
-    
-    public int getHrsSpent(){return super.hrsSpent;}
+    public int getReelsPerDay() { return reelsPerDay; }
+    public int getPostsPerDay() { return postsPerDay; }
     
     @Override
     public double calculateStalkability(){
-        return Socials.totalHrs*Socials.HOURS_MULTIPLIER
-                +reelsPerWeek*Socials.REELS_MULTIPLER 
-                + postsPerWeek*Socials.POSTS_MULTIPLIER
-                + NewJFrame.score*Socials.SCORE_MULTIPLIER;
+        return Socials.totalHrs * Socials.HOURS_MULTIPLIER
+                + reelsPerDay * Socials.REELS_MULTIPLER 
+                + postsPerDay * Socials.POSTS_MULTIPLIER
+                + NewJFrame.score * Socials.SCORE_MULTIPLIER;
     }
+    
     @Override
     public String toString(){
-        return "User spends "+ super.hrsSpent + " hours on Instagram, watches " + reelsPerWeek + " reels per week, posts "+postsPerWeek+"posts per week, and has a stalkability of "+calculateStalkability()+".";
+        return "User spends " + super.hrsSpent + " hours on Instagram, watches " 
+               + reelsPerDay + " reels/day, posts " + postsPerDay + " posts/day.";
     }
 }
