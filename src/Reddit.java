@@ -19,7 +19,7 @@ public class Reddit extends Socials {
     
     @Override
     public double calculateStalkability(){
-        return Socials.totalHrs * Socials.HOURS_MULTIPLIER
+        return super.hrsSpent * Socials.HOURS_MULTIPLIER
                 + postsPerDay * Socials.POSTS_MULTIPLIER
                 + NewJFrame.score * Socials.SCORE_MULTIPLIER;
     }

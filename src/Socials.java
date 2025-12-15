@@ -13,12 +13,12 @@ public class Socials {
     protected int hrsSpent;
     
     // MULTIPLIERS
-    protected static final double HOURS_MULTIPLIER = 0.0;   
-    protected static final double REELS_MULTIPLER = 0.0;    
-    protected static final double POSTS_MULTIPLIER = 0.1;   
-    protected static final double SCORE_MULTIPLIER = 0.2;
+    protected static final double HOURS_MULTIPLIER = 0.5;   
+    protected static final double REELS_MULTIPLER = 0.05;    
+    protected static final double POSTS_MULTIPLIER = 1.5;   
+    protected static final double SCORE_MULTIPLIER = 0.5;
      
-   public Socials(int hours){
+    public Socials(int hours){
         this.hrsSpent=hours;
         totalHrs += hours;
         totalAccounts++;

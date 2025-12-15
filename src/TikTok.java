@@ -19,7 +19,7 @@ public class TikTok extends Socials {
     
     @Override
     public double calculateStalkability(){
-        return Socials.totalHrs * Socials.HOURS_MULTIPLIER
+        return super.hrsSpent * Socials.HOURS_MULTIPLIER
                 + reelsPerDay * Socials.REELS_MULTIPLER 
                 + NewJFrame.score * Socials.SCORE_MULTIPLIER;
     }

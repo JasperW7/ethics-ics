@@ -22,7 +22,7 @@ public class Instagram extends Socials {
     
     @Override
     public double calculateStalkability(){
-        return Socials.totalHrs * Socials.HOURS_MULTIPLIER
+        return super.hrsSpent * Socials.HOURS_MULTIPLIER
                 + reelsPerDay * Socials.REELS_MULTIPLER 
                 + postsPerDay * Socials.POSTS_MULTIPLIER
                 + NewJFrame.score * Socials.SCORE_MULTIPLIER;
