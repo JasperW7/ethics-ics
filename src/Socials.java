@@ -35,6 +35,12 @@ public class Socials {
         return totalHrs * HOURS_MULTIPLIER + NewJFrame.score * SCORE_MULTIPLIER;
     }
     
+    public static void resetTotals() {
+        totalHrs = 0;
+        totalAccounts = 0;
+        NewJFrame.score = 0;
+    }
+    
     @Override
     public String toString(){
         return "User spends "+ totalHrs + " time on social media with a stalkability of "+calculateStalkability()+".";

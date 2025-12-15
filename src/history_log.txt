@@ -71,3 +71,14 @@ Log: User spends 0.9166666666666666 hrs/day. Risk Level: 54.5%
 Log: User spends 0.9166666666666666 hrs/day. Risk Level: 68.0%
 Log: User spends 0.2833333333333333 hrs/day. Risk Level: 13.8%
 Log: User spends 0.2833333333333333 hrs/day. Risk Level: 67.8%
+Log: User spends 0.0 hrs/day. Risk Level: 0.0%
+Log: User spends 0.0 hrs/day. Risk Level: 0.0%
+Log: User spends 24.0 hrs/day. Risk Level: 0.0%
+Log: User spends 24.0 hrs/day. Risk Level: 0.0%
+Log: User spends 24.0 hrs/day. Risk Level: 0.0%
+Log: User spends 24.0 hrs/day. Risk Level: 0.0%
+Log: User spends 24.0 hrs/day. Risk Level: 0.0%
+Log: User spends 24.0 hrs/day. Risk Level: 0.0%
+Log: User spends 12.0 hrs/day. Risk Level: 0.0%
+Log: User spends 24.0 hrs/day. Risk Level: 0.0%
+Log: User spends 0.0 hrs/day. Risk Level: 27.0%

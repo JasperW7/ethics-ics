@@ -52,6 +52,9 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JSlider" name="tiktokSlider">
+      <Properties>
+        <Property name="maximum" type="int" value="24"/>
+      </Properties>
       <Events>
         <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="tiktokSliderStateChanged"/>
       </Events>
@@ -62,6 +65,9 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JSlider" name="instagramSlider">
+      <Properties>
+        <Property name="maximum" type="int" value="24"/>
+      </Properties>
       <Events>
         <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="instagramSliderStateChanged"/>
       </Events>
@@ -72,6 +78,9 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JSlider" name="redditSlider">
+      <Properties>
+        <Property name="maximum" type="int" value="24"/>
+      </Properties>
       <Events>
         <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="redditSliderStateChanged"/>
       </Events>
@@ -101,13 +110,13 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="redditLabel">
+    <Component class="javax.swing.JLabel" name="instaBoxLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Reddit:"/>
+        <Property name="text" type="java.lang.String" value="0 hours spent total"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="34" y="161" width="-1" height="-1"/>
+          <AbsoluteConstraints x="80" y="140" width="-1" height="20"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -375,6 +384,36 @@
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="370" y="40" width="-1" height="-1"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="redditLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Reddit:"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="34" y="161" width="-1" height="-1"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="redditBoxLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0 hours spent total"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="80" y="180" width="-1" height="20"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="tiktokBoxLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0 hours spent total"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="80" y="100" width="-1" height="20"/>
         </Constraint>
       </Constraints>
     </Component>

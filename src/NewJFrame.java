@@ -36,7 +36,7 @@ DataManager dataManager = new DataManager();
         redditSlider = new javax.swing.JSlider();
         tiktokLabel = new javax.swing.JLabel();
         instagramLabel = new javax.swing.JLabel();
-        redditLabel = new javax.swing.JLabel();
+        instaBoxLabel = new javax.swing.JLabel();
         tiktokReels = new javax.swing.JTextField();
         instagramReels = new javax.swing.JTextField();
         stalkabilityTitle = new javax.swing.JLabel();
@@ -60,6 +60,9 @@ DataManager dataManager = new DataManager();
         redditPosts = new javax.swing.JTextField();
         habitsTitle1 = new javax.swing.JLabel();
         tipsButton = new javax.swing.JToggleButton();
+        redditLabel1 = new javax.swing.JLabel();
+        redditBoxLabel = new javax.swing.JLabel();
+        tiktokBoxLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -72,6 +75,7 @@ DataManager dataManager = new DataManager();
         habitsTitle.setText("Posts/Day - Reels/Day");
         getContentPane().add(habitsTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, -1, 20));
 
+        tiktokSlider.setMaximum(24);
         tiktokSlider.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 tiktokSliderStateChanged(evt);
@@ -79,6 +83,7 @@ DataManager dataManager = new DataManager();
         });
         getContentPane().add(tiktokSlider, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 83, 90, -1));
 
+        instagramSlider.setMaximum(24);
         instagramSlider.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 instagramSliderStateChanged(evt);
@@ -86,6 +91,7 @@ DataManager dataManager = new DataManager();
         });
         getContentPane().add(instagramSlider, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 120, 90, -1));
 
+        redditSlider.setMaximum(24);
         redditSlider.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 redditSliderStateChanged(evt);
@@ -99,8 +105,8 @@ DataManager dataManager = new DataManager();
         instagramLabel.setText("Instagram:");
         getContentPane().add(instagramLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 121, -1, -1));
 
-        redditLabel.setText("Reddit:");
-        getContentPane().add(redditLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 161, -1, -1));
+        instaBoxLabel.setText("0 hours spent total");
+        getContentPane().add(instaBoxLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, -1, 20));
 
         tiktokReels.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -198,6 +204,15 @@ DataManager dataManager = new DataManager();
         });
         getContentPane().add(tipsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, -1, -1));
 
+        redditLabel1.setText("Reddit:");
+        getContentPane().add(redditLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 161, -1, -1));
+
+        redditBoxLabel.setText("0 hours spent total");
+        getContentPane().add(redditBoxLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, -1, 20));
+
+        tiktokBoxLabel.setText("0 hours spent total");
+        getContentPane().add(tiktokBoxLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, -1, 20));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -215,57 +230,59 @@ DataManager dataManager = new DataManager();
 
     private void calculateButonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateButonActionPerformed
         try {
-            //Reset variables
-            Socials.totalHrs = 0;
-            Socials.totalAccounts = 0;
-            score = 0; 
+            // Reset variables
+            Socials.resetTotals(); 
+            // ensure score is 0
+            NewJFrame.score = 0; 
 
-            // Get Counts from Text Boxes
+            // Get time from sliders
+            int tiktokHours = tiktokSlider.getValue();
+            int instaHours = instagramSlider.getValue();
+            int redditHours = redditSlider.getValue();
+
+            // Get count from text boes
             int tr = tiktokReels.getText().isEmpty() ? 0 : Integer.parseInt(tiktokReels.getText());
             int ir = instagramReels.getText().isEmpty() ? 0 : Integer.parseInt(instagramReels.getText());
             int ip = instagramPosts.getText().isEmpty() ? 0 : Integer.parseInt(instagramPosts.getText());
             int rp = redditPosts.getText().isEmpty() ? 0 : Integer.parseInt(redditPosts.getText());
             
-            //Calculate Time Based on Content
-            double tiktokMinutes = tr * 0.5;
-            double instagramMinutes = (ir * 0.5) + (ip * 2.0);
-            double redditMinutes = rp * 2.0;
-            
-            double totalMinutes = tiktokMinutes + instagramMinutes + redditMinutes;
-            double exactHours = totalMinutes / 60.0; // Convert to hours
-            
-            Socials.totalHrs = (int) Math.round(exactHours);
-
-            //calculate Checkbox Score
+            // Calculate Checkbox Score
             score += (check1.isSelected()) ? 15 : 0; 
             score += (check2.isSelected()) ? 15 : 0;
             score += (check3.isSelected()) ? 15 : 0;
             score += (check4.isSelected()) ? 15 : 0;
             score += (check5.isSelected()) ? 15 : 0;
 
-            //Create Objects 
+            // Create Objects
             Socials[] socials = new Socials[3];
-            socials[0] = new TikTok((int)(tiktokMinutes/60), tr);
-            socials[1] = new Instagram((int)(instagramMinutes/60), ir, ip);
-            socials[2] = new Reddit((int)(redditMinutes/60), rp);
+            socials[0] = new TikTok(tiktokHours, tr);
+            socials[1] = new Instagram(instaHours, ir, ip);
+            socials[2] = new Reddit(redditHours, rp);
 
-            //Calculate Risk
+            // Calculate Risk
             double finalRisk = 0;
+            int totalHours = tiktokHours + instaHours + redditHours;
+            
+            // Cap visual hours at 24
+            if(totalHours > 24) totalHours = 24; 
+            
+            // Loop through objects to sum up risk
             for (Socials s : socials) {
                 finalRisk += s.calculateStalkability();
             }
+            
             if (finalRisk > 100) finalRisk = 100;
 
-            //Update Labels
-            dailyHours.setText(String.format("%.1f", exactHours) + " hours");
+            // Update UI Labels
+            dailyHours.setText(totalHours + " hours spent total");
             
             // Calculate Days Wasted
-            double days = (exactHours * 365) / 24.0;
+            double days = (totalHours * 365) / 24.0;
             daysWasted.setText(String.format("%.1f", days) + " days");
             
             stalkRisk2.setText(String.format("%.1f", finalRisk) + "%");
             
-            //Risk Status
+            // Risk Status Color
             if (finalRisk < 30) {
                 stalkRisk.setText("LOW");
                 stalkRisk.setForeground(java.awt.Color.GREEN);
@@ -277,8 +294,8 @@ DataManager dataManager = new DataManager();
                 stalkRisk.setForeground(java.awt.Color.RED);
             }
 
-            // save to File
-            dataManager.saveResultLog(exactHours, finalRisk);
+            // Save to File
+            dataManager.saveResultLog(totalHours, finalRisk);
             
             resultLabel.setText("Calculation Complete. Data saved.");
 
@@ -291,19 +308,15 @@ DataManager dataManager = new DataManager();
 
     private void tiktokSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tiktokSliderStateChanged
         // Updates boxes to show hours
-        int val = tiktokSlider.getValue();
-        tiktokReels.setText(String.valueOf(val));
+        tiktokBoxLabel.setText("TikTok: " + tiktokSlider.getValue() + " hrs spent total");
     }//GEN-LAST:event_tiktokSliderStateChanged
 
     private void instagramSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_instagramSliderStateChanged
-        int val = instagramSlider.getValue();
-        // Updates the 'Reels' box
-        instagramReels.setText(String.valueOf(val));
+        instaBoxLabel.setText("Instagram: " + instagramSlider.getValue() + " hrs spent total");
     }//GEN-LAST:event_instagramSliderStateChanged
 
     private void redditSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_redditSliderStateChanged
-        int val = redditSlider.getValue();
-        redditPosts.setText(String.valueOf(val));
+        redditBoxLabel.setText("Reddit: " + redditSlider.getValue() + " hrs spent total");
     }//GEN-LAST:event_redditSliderStateChanged
 
     private void tipsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipsButtonActionPerformed
@@ -361,6 +374,7 @@ DataManager dataManager = new DataManager();
     private javax.swing.JLabel daysWasted;
     private javax.swing.JLabel habitsTitle;
     private javax.swing.JLabel habitsTitle1;
+    private javax.swing.JLabel instaBoxLabel;
     private javax.swing.JLabel instagramLabel;
     private javax.swing.JTextField instagramPosts;
     private javax.swing.JTextField instagramReels;
@@ -368,7 +382,8 @@ DataManager dataManager = new DataManager();
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel redditLabel;
+    private javax.swing.JLabel redditBoxLabel;
+    private javax.swing.JLabel redditLabel1;
     private javax.swing.JTextField redditPosts;
     private javax.swing.JSlider redditSlider;
     private javax.swing.JLabel resultLabel;
@@ -376,6 +391,7 @@ DataManager dataManager = new DataManager();
     private javax.swing.JLabel stalkRisk2;
     private javax.swing.JLabel stalkabilityTitle;
     private javax.swing.JLabel stalkabilityTitle1;
+    private javax.swing.JLabel tiktokBoxLabel;
     private javax.swing.JLabel tiktokLabel;
     private javax.swing.JTextField tiktokReels;
     private javax.swing.JSlider tiktokSlider;
