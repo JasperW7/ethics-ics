@@ -268,7 +268,13 @@ DataManager dataManager = new DataManager();
             
             // Loop through objects to sum up risk
             for (Socials s : socials) {
-                finalRisk += s.calculateStalkability();
+                if (s instanceof TikTok){
+                    finalRisk+= ((TikTok) s).calculateStalkability();
+                }else if (s instanceof Instagram){
+                    finalRisk+= ((Instagram) s).calculateStalkability();
+                }else{
+                    finalRisk+= ((Reddit) s).calculateStalkability();
+                }
             }
             
             if (finalRisk > 100) finalRisk = 100;

@@ -16,7 +16,7 @@ public class Socials {
     protected static final double HOURS_MULTIPLIER = 0.0;   
     protected static final double REELS_MULTIPLER = 0.0;    
     protected static final double POSTS_MULTIPLIER = 0.1;   
-    protected static final double SCORE_MULTIPLIER = 1.6;
+    protected static final double SCORE_MULTIPLIER = 0.2;
      
    public Socials(int hours){
         this.hrsSpent=hours;
