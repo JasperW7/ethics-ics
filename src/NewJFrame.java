@@ -251,7 +251,7 @@ DataManager dataManager = new DataManager();
             score += (check2.isSelected()) ? 2 : 0;
             score += (check3.isSelected()) ? 5 : 0;
             score += (check4.isSelected()) ? 5 : 0;
-            score += (check5.isSelected()) ? 10 : 0;
+            score += (check5.isSelected()) ? 20 : 0;
 
             // Create Objects
             Socials[] socials = new Socials[3];
