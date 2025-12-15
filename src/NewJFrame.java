@@ -247,11 +247,11 @@ DataManager dataManager = new DataManager();
             int rp = redditPosts.getText().isEmpty() ? 0 : Integer.parseInt(redditPosts.getText());
             
             // Calculate Checkbox Score
-            score += (check1.isSelected()) ? 15 : 0; 
-            score += (check2.isSelected()) ? 15 : 0;
-            score += (check3.isSelected()) ? 15 : 0;
-            score += (check4.isSelected()) ? 15 : 0;
-            score += (check5.isSelected()) ? 15 : 0;
+            score += (check1.isSelected()) ? 1 : 0; 
+            score += (check2.isSelected()) ? 2 : 0;
+            score += (check3.isSelected()) ? 5 : 0;
+            score += (check4.isSelected()) ? 5 : 0;
+            score += (check5.isSelected()) ? 10 : 0;
 
             // Create Objects
             Socials[] socials = new Socials[3];
